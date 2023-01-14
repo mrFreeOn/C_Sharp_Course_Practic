@@ -16,7 +16,7 @@ double Distance(int x1, int y1, int z1, int x2, int y2, int z2)
 }
 int x1; int y1; int z1; int x2; int y2; int z2;
 Console.WriteLine(x1 = ReadNumber("Введите координату x1: "));
-Console.WriteLine(y1 = ReadNumber("Введите координату y1: "));
+Console.WriteLine(y1 = ReadNumber("Введите координату y1: ")); 
 Console.WriteLine(z1 = ReadNumber("Введите координату z1: "));
 Console.WriteLine(x2 = ReadNumber("Введите координату x2: "));
 Console.WriteLine(y2 = ReadNumber("Введите координату y2: "));
