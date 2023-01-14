@@ -11,7 +11,7 @@ int ReadNumber(string message)
 double Distance(int x1, int y1, int z1, int x2, int y2, int z2)
 {
     double result;
-    result = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) + Math.Pow(z2 - z1, 2));
+    result = Math.Round(Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) + Math.Pow(z2 - z1, 2)), 2);
     return result;
 }
 int x1; int y1; int z1; int x2; int y2; int z2;
@@ -22,5 +22,5 @@ Console.WriteLine(x2 = ReadNumber("Введите координату x2: "));
 Console.WriteLine(y2 = ReadNumber("Введите координату y2: "));
 Console.WriteLine(z2 = ReadNumber("Введите координату z2: "));
 
-Console.WriteLine(Math.Round(Distance(x1, y1, z1, x2, y2, z2)), 2);
+Console.WriteLine(Distance(x1, y1, z1, x2, y2, z2));
 
