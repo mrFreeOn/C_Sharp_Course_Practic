@@ -17,22 +17,24 @@ int[] FillArray(int size, int from, int to)
     return arr;
 }
 
-string Search(int[] arr, int N)
+int[] Search(int[] arr)
 {
-    for (int i = 0; i < arr.Length; i++)
-    {
-        if (arr[i] == N)
-            return "да";
-    }
-    return "Нет";
+    int size = arr.Length;
+    int flex_size = size / 2 + size % 2;
+    int[] result = new int[flex_size];
+
+    for (int i = 0; i < size / 2; i++)
+        result[i] = arr[i] * arr[size - i - 1];
+
+    if (result[flex_size - 1] == 0)
+        result[flex_size - 1] = arr[flex_size - 1];
+    return result;
 }
-Console.Write("Введите искомое число: ");
-int numSearch = int.Parse(Console.ReadLine());
 
 Console.WriteLine("Введите количество элементов массива и диапазон: ");
 int[] arr_1 = FillArray(int.Parse(Console.ReadLine()),
                         int.Parse(Console.ReadLine()),
                         int.Parse(Console.ReadLine()));
 PrintArray(arr_1);
-Console.WriteLine(Search(arr_1, numSearch));
+PrintArray(Search(arr_1));
 
