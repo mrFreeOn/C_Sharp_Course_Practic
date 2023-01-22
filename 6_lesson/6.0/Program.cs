@@ -21,13 +21,13 @@ int[] FillArray(int size, int from, int to)
     return arr;
 }
 
-int Search(int[] arr)
+void ReversMass(int[] arr_1)
 {
-    int count = 0;
-    for (int i = 0; i < arr.Length; i++)
-        if (arr[i] % 2 == 0)
-            count++;
-    return count;
+    int size = arr_1.Length;
+    
+    for (int i = 0; i < size / 2; i++)
+        (arr_1[i], arr_1[size - i - 1]) = (arr_1[size - i - 1], arr_1[i]);
+    
 }
 
 Console.WriteLine("Введите количество элементов массива и диапазон: ");
@@ -35,5 +35,6 @@ int[] arr_1 = FillArray(int.Parse(Console.ReadLine()),
                         int.Parse(Console.ReadLine()),
                         int.Parse(Console.ReadLine()));
 PrintArray(arr_1);
-Console.WriteLine(Search(arr_1));
+ReversMass(arr_1);
+PrintArray(arr_1);
 
