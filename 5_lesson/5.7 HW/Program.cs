@@ -1,4 +1,6 @@
-﻿void PrintArray(int[] array)
+﻿// задайте массив вещественных чисел. Найдите разницу между мин и макс элементами массива.
+
+void PrintArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -7,34 +9,36 @@
     Console.WriteLine();
 }
 
-int[] FillArray(int size, int from, int to)
+double[] FillArray(int size, int from, int to)
 {
-    int[] arr = new int[size];
+    double[] arr = new double[size];
+    Random n_new = new Random();
     for (int i = 0; i < size; i++)
     {
-        arr[i] = new Random().Next(from, to);
+        arr[i] = Math.Round(n_new.NextDouble()*(from + to) - from,2);
     }
     return arr;
 }
 
-int[] Search(int[] arr)
+void Search(double[] arr)
 {
-    int size = arr.Length;
-    int flex_size = size / 2 + size % 2;
-    int[] result = new int[flex_size];
-
-    for (int i = 0; i < size / 2; i++)
-        result[i] = arr[i] * arr[size - i - 1];
-
-    if (result[flex_size - 1] == 0)
-        result[flex_size - 1] = arr[flex_size - 1];
-    return result;
+    double Max, Min;
+    Max = Min = arr[0];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] > Max)
+            Max = arr[i];
+        if (arr[i] < Min)
+            Min = arr[i];
+    }
+    Console.WriteLine($"Max: {Max}, Min: {Min}");
+    Console.WriteLine($"Diff: {Max} - ({Min}) = {Math.Round(Max - Min, 2)}");
 }
 
 Console.WriteLine("Введите количество элементов массива и диапазон: ");
-int[] arr_1 = FillArray(int.Parse(Console.ReadLine()),
+double[] arr_1 = FillArray(int.Parse(Console.ReadLine()),
                         int.Parse(Console.ReadLine()),
                         int.Parse(Console.ReadLine()));
 PrintArray(arr_1);
-PrintArray(Search(arr_1));
+Search(arr_1);
 
