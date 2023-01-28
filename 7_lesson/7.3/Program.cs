@@ -25,18 +25,17 @@ int[,] FillArray2D(int row, int col, int from, int to)
     return arr;
 }
 
-int[,] LevelUp(int[,] arr_pow)
+int Diagonal(int[,] arr_diag)
 {
-    for (int i = 1; i < arr_pow.GetLength(0); i+=2)
-        for (int j = 1; j < arr_pow.GetLength(1); j += 2)
-            arr_pow[i, j] *= arr_pow[i, j];
-    /*for (int j = 0; j < arr_pow.GetLength(1); j++)
-        if (i % 2 != 0 && j % 2 != 0)
-            arr_pow[i, j] = arr_pow[i, j] * arr_pow[i, j];
-        else
-            arr_pow[i, j] = arr_pow[i, j];*/
+    int result = 0;
+    int j = 0;
+    for (int i = 0; i < arr_diag.GetLength(0); i++)
+    {
+            j = i;
+            result += arr_diag[i, j];
+    }
 
-    return arr_pow;
+    return result;
 }
 Console.WriteLine("Введите количество строк и столбцов массива и диапазон: ");
 int[,] arr_1 = FillArray2D(int.Parse(Console.ReadLine()),
@@ -46,4 +45,4 @@ int[,] arr_1 = FillArray2D(int.Parse(Console.ReadLine()),
 
 PrintArray2D(arr_1);
 Console.WriteLine();
-PrintArray2D(LevelUp(arr_1));
+Console.WriteLine(Diagonal(arr_1));
