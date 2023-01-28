@@ -24,7 +24,7 @@ double[] P_line(double k1, double b1, double k2, double b2)
     else
     {   
 
-        x = (b1 - b2) / (k1 - k2);
+        x = (b2 - b1) / (k1 - k2);
         result[0] = x;
         result[1] = k1 * x + b1;
         return result;        
