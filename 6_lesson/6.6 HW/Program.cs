@@ -18,7 +18,7 @@ double[] P_line(double k1, double b1, double k2, double b2)
     result[1] = -1;
     if (Math.Abs(b1) == Math.Abs(b2) && Math.Abs(k1) == Math.Abs(k2))
     {
-        Console.WriteLine("Прямые не пресекаются");
+        Console.WriteLine("Прямые не пересекаются");
         return result;
     }
     else
