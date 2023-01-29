@@ -1,0 +1,37 @@
+﻿// задайте двумерный массив м*н и заполните его случайными вещественными числами
+
+// задайте двумерный массив. Найдите элементы у которых обе позиции четные и замените эти элементы на их квадраты.
+
+/*создайте двумерный массив m*n и заполните его случайными числами*/
+
+void PrintArray2D(double[,] array)
+{
+    int row_size = array.GetLength(0);
+    int col_size = array.GetLength(1);
+
+    for (int i = 0; i < row_size; i++)
+    {
+        for (int j = 0; j < col_size; j++)
+            Console.Write($" {array[i, j],4} ");
+        Console.WriteLine();
+    }
+}
+
+double[,] FillArray2D(int row, int col, int from, int to)
+{
+    double[,] arr = new double[row, col];
+    Random Random = new Random();
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < col; j++)
+            arr[i, j] = Math.Round(Random.NextDouble(), 1);
+
+    return arr;
+}
+Console.WriteLine("Введите количество строк и столбцов массива и диапазон: ");
+double[,] arr_1 = FillArray2D(int.Parse(Console.ReadLine()),
+                            int.Parse(Console.ReadLine()),
+                            int.Parse(Console.ReadLine()),
+                            int.Parse(Console.ReadLine()));
+
+PrintArray2D(arr_1);
+

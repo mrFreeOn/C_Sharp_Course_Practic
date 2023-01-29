@@ -23,17 +23,22 @@ int[,] FillArray2D(int row, int col, int from, int to)
     return arr;
 }
 
-int Diagonal(int[,] arr_diag)
+void Input(int[,] arr_serch)
 {
-    int result = 0;
-    int j = 0;
-    for (int i = 0; i < arr_diag.GetLength(0); i++)
-    {
-            j = i;
-            result += arr_diag[i, j];
-    }
-
-    return result;
+    Console.Write("Введите искомое значение: ");
+    int serch_number = int.Parse(Console.ReadLine());
+    int count = 0;
+    for (int i = 0; i < arr_serch.GetLength(0); i++)
+        for (int j = 0; j < arr_serch.GetLength(1); j++)
+        {
+            if (arr_serch[i, j] == serch_number)
+            {
+                Console.WriteLine($"Введенный элемент {serch_number}, результат: [{i + 1}, {j + 1}]");
+                count++;
+                break;
+            }
+        }
+    if (count == 0) Console.Write($"Введенный элемент {serch_number}, результат: такого элемента нет.");
 }
 Console.WriteLine("Введите количество строк и столбцов массива и диапазон: ");
 int[,] arr_1 = FillArray2D(int.Parse(Console.ReadLine()),
@@ -43,4 +48,4 @@ int[,] arr_1 = FillArray2D(int.Parse(Console.ReadLine()),
 
 PrintArray2D(arr_1);
 Console.WriteLine();
-Console.WriteLine(Diagonal(arr_1));
+Input(arr_1);
