@@ -12,7 +12,7 @@ void PrintArray2D(double[,] array)
     for (int i = 0; i < row_size; i++)
     {
         for (int j = 0; j < col_size; j++)
-            Console.Write($" {array[i, j],4} ");
+            Console.Write($" {array[i, j],6} ");
         Console.WriteLine();
     }
 }
@@ -23,7 +23,7 @@ double[,] FillArray2D(int row, int col, int from, int to)
     Random Random = new Random();
     for (int i = 0; i < row; i++)
         for (int j = 0; j < col; j++)
-            arr[i, j] = Math.Round(Random.NextDouble(), 1);
+            arr[i, j] = Math.Round(Random.NextDouble()* -10, 2);
 
     return arr;
 }

@@ -30,7 +30,8 @@ void Search(int[,] arr_search)
     int search_row = int.Parse(Console.ReadLine());
     int search_col = int.Parse(Console.ReadLine());
     Console.WriteLine();
-    if (search_row <= arr_search.GetLength(0) && search_col <= arr_search.GetLength(1))
+    if (search_row <= arr_search.GetLength(0) && search_col <= arr_search.GetLength(1) 
+            && search_col >= 0 && search_row >= 0)
         Console.WriteLine($"Искомый элемент: {arr_search[search_row-1, search_col-1]}");
     else  
         Console.WriteLine("Элемент с введенной позицией в массиве отсутсвует.");
