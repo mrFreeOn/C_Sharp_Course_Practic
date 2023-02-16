@@ -29,10 +29,10 @@ void SortRow(int[,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
         for (int j = 0; j < arr.GetLength(1) - 1; j++)
-            for (int n = j + 1; n < arr.GetLength(1); n++)
+            for (int k = j + 1; k < arr.GetLength(1); k++)
             {
-                if (arr[i, j] > arr[i, n])
-                    (arr[i, j], arr[i, n]) = (arr[i, n], arr[i, j]);
+                if (arr[i, j] > arr[i, k])
+                    (arr[i, j], arr[i, k]) = (arr[i, k], arr[i, j]);
             }
 }
 
